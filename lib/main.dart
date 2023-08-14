@@ -27,14 +27,15 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          children: [
-            if (isPicturePresent) const ImageWidget(),
-            if (isPicturePresent && isTextPresent) const ImageWithTextWidget(),
-            if (isVideoPresent) const VideoWidget(),
-            if (isVideoPresent && isTextPresent) const VideoWithTextWidget(),
-          ],
-        ),
+        child: isPicturePresent
+            ? (isTextPresent
+                ? const ImageWithTextWidget()
+                : const ImageWidget())
+            : (isVideoPresent
+                ? (isTextPresent
+                    ? const VideoWithTextWidget()
+                    : const VideoWidget())
+                : const Text('No content available')),
       ),
     );
   }

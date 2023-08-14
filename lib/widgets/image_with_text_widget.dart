@@ -10,6 +10,22 @@ class ImageWithTextWidget extends StatefulWidget {
 class _ImageWithTextWidgetState extends State<ImageWithTextWidget> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Center(
+        child: Column(
+          children: [
+            Expanded(
+              child: Image.asset(
+                'assets/images/img3.jpg',
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: Text('Hello World'),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }

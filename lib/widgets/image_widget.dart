@@ -10,6 +10,12 @@ class ImageWidget extends StatefulWidget {
 class _ImageWidgetState extends State<ImageWidget> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Center(
+        child: Image.asset(
+          'assets/images/img3.jpg',
+        ),
+      ),
+    );
   }
 }
