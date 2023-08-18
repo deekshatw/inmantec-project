@@ -20,8 +20,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   // bools to check what data is present in database
   bool isPicturePresent = false;
-  bool isVideoPresent = false;
-  bool isTextPresent = false;
+  bool isVideoPresent = true;
+  bool isTextPresent = true;
 
   @override
   Widget build(BuildContext context) {
