@@ -19,18 +19,16 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   // bools to check what data is present in database
-  bool isPicturePresent = false;
-  bool isVideoPresent = true;
-  bool isTextPresent = true;
+  bool isPicturePresent = true;
+  bool isVideoPresent = false;
+  bool isTextPresent = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: isPicturePresent
-            ? (isTextPresent
-                ? const ImageWithTextWidget()
-                : const ImageWidget())
+            ? (isTextPresent ? ImageWithTextWidget() : ImageWidget())
             : (isVideoPresent
                 ? (isTextPresent
                     ? const VideoWithTextWidget()

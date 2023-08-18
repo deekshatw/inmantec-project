@@ -1,19 +1,36 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-class ImageWidget extends StatefulWidget {
-  const ImageWidget({super.key});
+class ImageWidget extends StatelessWidget {
+  final List<String> imagePaths = [
+    'assets/images/img1.jpg',
+    'assets/images/img2.jpg',
+    'assets/images/img3.jpg'
+  ];
+  ImageWidget({super.key});
 
-  @override
-  State<ImageWidget> createState() => _ImageWidgetState();
-}
-
-class _ImageWidgetState extends State<ImageWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Image.asset(
-          'assets/images/img3.jpg',
+        child: CarouselSlider(
+          items: imagePaths.map((imagePath) {
+            return Builder(
+              builder: (BuildContext context) {
+                return Image.asset(
+                  imagePath,
+                  fit: BoxFit.cover,
+                );
+              },
+            );
+          }).toList(),
+          options: CarouselOptions(
+            // height: MediaQuery.of(context).size.height * 0.6,
+            autoPlay: true,
+            autoPlayInterval: const Duration(seconds: 3),
+            autoPlayAnimationDuration: const Duration(milliseconds: 800),
+            autoPlayCurve: Curves.fastOutSlowIn,
+          ),
         ),
       ),
     );
